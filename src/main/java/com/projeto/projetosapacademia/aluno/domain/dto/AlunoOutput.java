@@ -13,11 +13,12 @@ import lombok.Getter;
 @Data()
 public final class AlunoOutput {
 
-    private final String nome;
-    private final String email;
-    private final Date dataCadastro;
+    private String nome;
+    private String registroAcademico;
+    private String email;
+    private Date dataCadastro;
 
     public static AlunoOutput toDTO(Aluno aluno) {
-        return new AlunoOutput(aluno.getNome(), aluno.getEmail(), aluno.getDataCadastro());
+        return new AlunoOutput(aluno.getNome(), aluno.getRegistroAcademico(), aluno.getEmail(), aluno.getDataCadastro());
     }
 }
