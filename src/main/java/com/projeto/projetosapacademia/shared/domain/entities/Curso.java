@@ -30,6 +30,9 @@ public final class Curso {
     @Column(name = "crs_nome", nullable = false, length = 80)
     private String nome;
 
+    @Column(name = "crs_registro", nullable = false, length = 80)
+    private String registro;
+
     @Column(name = "crs_email", nullable = false, length = 80)
     private String descricao;
 
