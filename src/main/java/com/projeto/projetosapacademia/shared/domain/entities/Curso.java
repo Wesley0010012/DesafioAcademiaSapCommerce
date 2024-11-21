@@ -33,7 +33,7 @@ public final class Curso {
     @Column(name = "crs_email", nullable = false, length = 80)
     private String descricao;
 
-    @Column(name = "aln_data_criacao", nullable = false)
+    @Column(name = "crs_data_criacao", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
 
