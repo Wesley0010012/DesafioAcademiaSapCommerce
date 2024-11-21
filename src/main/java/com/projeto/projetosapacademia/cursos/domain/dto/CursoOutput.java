@@ -14,10 +14,11 @@ import lombok.Getter;
 public final class CursoOutput {
 
     private final String nome;
+    private final String registro;
     private final String descricao;
     private final Date dataCriacao;
 
     public static CursoOutput toDTO(Curso curso) {
-        return new CursoOutput(curso.getNome(), curso.getDescricao(), curso.getDataCriacao());
+        return new CursoOutput(curso.getNome(), curso.getRegistro(), curso.getDescricao(), curso.getDataCriacao());
     }
 }

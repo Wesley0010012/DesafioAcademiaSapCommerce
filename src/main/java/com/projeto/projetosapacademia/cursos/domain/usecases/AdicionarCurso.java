@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import com.projeto.projetosapacademia.cursos.domain.dto.AdicionarCursoInput;
 import com.projeto.projetosapacademia.cursos.domain.dto.CursoOutput;
 import com.projeto.projetosapacademia.cursos.domain.errors.CursoJaExisteError;
+import com.projeto.projetosapacademia.cursos.domain.gateways.GerarRegistroCurso;
 import com.projeto.projetosapacademia.shared.domain.entities.Curso;
 import com.projeto.projetosapacademia.shared.domain.gateways.RegistrarCurso;
 import com.projeto.projetosapacademia.shared.domain.gateways.VerificarCursoPorNome;
@@ -20,11 +21,16 @@ public class AdicionarCurso implements UseCase<AdicionarCursoInput, CursoOutput>
     @Autowired()
     private RegistrarCurso registrarCurso;
 
+    @Autowired()
+    private GerarRegistroCurso gerarRegistroCurso;
+
     @Override()
     public CursoOutput execute(AdicionarCursoInput input) throws Exception {
         if (this.verificarCursoPorNome.existsByNome(input.getNome())) {
             throw new CursoJaExisteError();
         }
+
+        input.setRegistro(this.gerarRegistroCurso.gerar());
 
         Curso curso = this.registrarCurso.save(input.toDomain());
 
