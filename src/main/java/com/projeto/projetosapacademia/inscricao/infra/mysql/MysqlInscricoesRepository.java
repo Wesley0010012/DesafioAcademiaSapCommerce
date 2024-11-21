@@ -5,10 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import com.projeto.projetosapacademia.inscricao.domain.entities.Inscricao;
 import com.projeto.projetosapacademia.inscricao.domain.gateways.BuscarInscricoesPorAluno;
+import com.projeto.projetosapacademia.inscricao.domain.gateways.BuscarInscricoesPorCurso;
 import com.projeto.projetosapacademia.inscricao.domain.gateways.RegistrarInscricao;
 import com.projeto.projetosapacademia.inscricao.domain.gateways.VerificarInscricaoPorAlunoECurso;
 
 @Repository()
-public interface MysqlInscricoesRepository extends JpaRepository<Inscricao, Long>, RegistrarInscricao, VerificarInscricaoPorAlunoECurso, BuscarInscricoesPorAluno {
+public interface MysqlInscricoesRepository extends JpaRepository<Inscricao, Long>, RegistrarInscricao, VerificarInscricaoPorAlunoECurso, BuscarInscricoesPorAluno, BuscarInscricoesPorCurso {
 
 }
