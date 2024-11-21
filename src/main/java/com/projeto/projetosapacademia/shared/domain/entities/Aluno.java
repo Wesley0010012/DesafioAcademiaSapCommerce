@@ -30,6 +30,9 @@ public final class Aluno {
     @Column(name = "aln_nome", nullable = false, length = 80)
     private String nome;
 
+    @Column(name = "aln_registro_academico", nullable = false, length = 50)
+    private String registroAcademico;
+
     @Column(name = "aln_email", nullable = false, length = 80)
     private String email;
 
