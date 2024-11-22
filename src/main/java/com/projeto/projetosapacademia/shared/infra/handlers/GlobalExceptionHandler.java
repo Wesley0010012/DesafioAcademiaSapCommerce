@@ -1,5 +1,8 @@
 package com.projeto.projetosapacademia.shared.infra.handlers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -11,12 +14,18 @@ import com.projeto.projetosapacademia.shared.domain.errors.CustomError;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(CustomError.class)
-    public ResponseEntity<String> handleApplicationExceptions(CustomError ex) {
-        return new ResponseEntity<>(ex.getMessage(), ex.getStatusCode());
+    public ResponseEntity<Map<String, String>> handleApplicationExceptions(CustomError ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", ex.getMessage());
+
+        return new ResponseEntity<>(response, ex.getStatusCode());
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> handleGenericExceptions(Exception ex) {
-        return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity<Map<String, String>> handleGenericExceptions(Exception ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", ex.getMessage());
+
+        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
