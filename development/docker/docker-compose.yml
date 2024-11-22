@@ -1,0 +1,18 @@
+version: "2.2"
+services:
+  project_database:
+    container_name: "project__database"
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: abc12345
+      MYSQL_DATABASE: cursos
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./config/mysql/dump.sql:/docker-entrypoint-initdb.d/init.sql"
+    networks:
+      - project_network
+
+networks:
+  project_network:
+    driver: bridge

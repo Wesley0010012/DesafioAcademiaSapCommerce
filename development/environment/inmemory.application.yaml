@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: "Projeto SAP Academia Commerce"
+  datasource:
+    url: jdbc:h2:mem:cursos;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: root
+    password: abc12345
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
